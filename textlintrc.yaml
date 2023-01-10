@@ -1,0 +1,7 @@
+rules:
+  - common-misspellings:
+      - ignore: []
+  - spellchecker:
+      - skipWords: []
+      - skipRegExps: []
+      - skipNodeTypes: ['Link', 'Image', 'BlockQuote', 'Emphasis', 'Code']

@@ -1,0 +1,7 @@
+singleQuote: true
+semi: false
+useTabs: false
+'bracketSpacing': true
+trailingComma: 'all'
+importOrderSeparation: true
+htmlWhitespaceSensitivity: "ignore"

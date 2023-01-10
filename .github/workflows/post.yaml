@@ -1,0 +1,51 @@
+name: Post to dev.to
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+      - run: yarn
+
+      - name: Install textlint
+        run: 'yarn add -D textlint textlint-rule-common-misspellings textlint-rule-spellchecker'
+      
+      - name: Run textlint
+        run: npx textlint -f checkstyle "posts/**/*.md" >> .textlint.log
+
+      - name: Run Prettier
+        run: yarn run prettier:check
+
+      - name: Run Embedme
+        run: yarn run embedme:check
+
+  Post:
+    name: Post
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+      - run: yarn
+
+      - name: Post
+        run: DEV_TO_GIT_TOKEN=${{ secrets.DEV_TO_API_TOKEN }} yarn run dev-to-git

@@ -1,0 +1,26 @@
+{
+  "name": "atsushii",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/***"
+  },
+  "author": "atsushii <atsushimiyamoto07@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prettier": "prettier",
+    "embedme": "embedme posts/**/*.md",
+    "prettier:base": "yarn run prettier posts/\"**/*.{js,json,scss,md,ts,html,component.html}\"",
+    "prettier:write": "yarn run prettier:base --write ",
+    "prettier:check": "yarn run prettier:base --check",
+    "embedme:check": "yarn run embedme --verify",
+    "embedme:write": "yarn run embedme",
+    "dev-to-git": "dev-to-git"
+  },
+  "devDependencies": {
+    "dev-to-git": "^1.4.9",
+    "embedme": "^1.22.1",
+    "prettier": "^2.8.2"
+  }
+}
