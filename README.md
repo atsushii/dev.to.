@@ -17,7 +17,7 @@ DEV_TO_GIT_TOKEN=yourApiKey
 
 ### Local
 
-Set API key as env. It is used for building your draft article by golang. Check the below Building section
+Set API key as env. It is used for building your draft article by golang. Check the below Building section.
 This setup is necessary to build your draft article.
 
 ```
