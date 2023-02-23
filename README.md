@@ -22,7 +22,7 @@ This setup is necessary to build your draft article.
 
 ```
 # copy env
-cp .envrc .env
+cp .env.sample .env
 ```
 
 
@@ -41,4 +41,3 @@ You can just run below to create draft article and dir.
 go run main.go
 
 ```
-

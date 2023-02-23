@@ -9,11 +9,10 @@
   "author": "atsushii <atsushimiyamoto07@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prettier": "prettier",
     "embedme": "embedme posts/**/*.md",
-    "prettier:base": "yarn run prettier posts/\"**/*.{js,json,scss,md,ts,html,component.html}\"",
-    "prettier:write": "yarn run prettier:base --write ",
-    "prettier:check": "yarn run prettier:base --check",
+    "textlint": "npx textlint -f checkstyle posts/**/*.md >> .textlint.log",
+    "format:fix": "prettier --write posts/\"**/*.{js,json,scss,md,ts,html,component.html}\"",
+    "format:check": "prettier --check posts/\"**/*.{js,json,scss,md,ts,html,component.html}\"",
     "embedme:check": "yarn run embedme --verify",
     "embedme:write": "yarn run embedme",
     "dev-to-git": "dev-to-git"

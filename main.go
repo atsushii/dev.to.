@@ -67,7 +67,7 @@ func build() (int, error) {
 		fmt.Printf("Error build article: %s", err.Error())
 		return 0, err
 	}
-	fmt.Println(article, "**")
+
 	return article.Id, nil
 }
 
